@@ -90,7 +90,7 @@ const getSession: GetSessionFunc<SessionData | null | void> = async (getSessionO
 
   loading.value = true
   try {
-    data.value = await _fetch<SessionData>(nuxt, path, { method, headers })
+    data.value = await _fetch<SessionData>(nuxt, path, { method, headers, credentials: 'include' })
   } catch {
     // Clear all data: Request failed so we must not be authenticated
     data.value = null
